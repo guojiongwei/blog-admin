@@ -2,8 +2,8 @@
     <section class="info-wrapper df-center">
         <div class="info-box">
             <div class="avatar"></div>
-            <h2 class="name">Wintermelon</h2>
-            <small class="desc">吃喝拉撒睡...</small>
+            <h2 class="name">无忧大帝</h2>
+            <!-- <small class="desc">无忧大前端</small> -->
         </div>
     </section>
 </template>

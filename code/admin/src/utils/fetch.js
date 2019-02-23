@@ -46,7 +46,7 @@ function checkCode(res) {
     return res
 }
 
-const prefix = '/admin_demo_api/'
+const prefix = 'http://guojiongwei.com/admin_demo_api/'
 export default {
     get(url, params) {
         if (!url) return

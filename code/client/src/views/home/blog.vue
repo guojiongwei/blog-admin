@@ -1,12 +1,12 @@
 <template>
     <section class="blog-wrapper">
         <ul v-if="blogList.length > 0">
-            <li class="article" v-for="(v, index) in blogList" :style="{'animation-delay': index%5*0.2+'s'}" @click="$router.push(`/article/${v._id}`)" :index='index'>
+            <li class="article" v-for="(v, index) in blogList" :key="index" :style="{'animation-delay': index%5*0.2+'s'}" @click="$router.push(`/article/${v._id}`)" :index='index'>
                 <Github class="github mouse-pointer" background="rgba(186, 164, 119, 0.99)" :link="v.github" v-if="v.github"></Github>
                 <time>{{v.createTime | parseTime('{y}-{m}-{d}')}}</time>
                 <h2 class="name">{{v.title}}</h2>
                 <div class="tags">
-                    <Tag v-for="{tag, index} in v.type" :key :text="tag" :key="index" :path="tag"></Tag>
+                    <Tag v-for="{tag, index} in v.type" :text="tag" :key="index" :path="tag"></Tag>
                 </div>
                 <div class="desc">{{v.desc}}</div>
                 <div class="source">

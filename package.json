@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:admin": "cross-env NODE_ENV_TYPE=admin webpack-dev-server --config build/webpack.dev.conf.js",
+    "dev:admin": "cross-env NODE_ENV=development NODE_ENV_TYPE=admin webpack-dev-server --config build/webpack.dev.conf.js",
     "dev:client": "set NODE_ENV_TYPE=client && webpack-dev-server --config build/webpack.dev.conf.js",
     "build:admin": "cross-env NODE_ENV_TYPE=admin node build/build.js",
     "build:client": "cross-env NODE_ENV_TYPE=client node build/build.js",
