@@ -8,6 +8,6 @@ import './mongodb'
 const app = new Koa()
 middleware(app)
 router(app)
-app.listen(conf.port, () => {
+app.listen(conf.port, 'localhost',() => {
     console.log(`server is running at http://localhost:${conf.port}`)
 })
