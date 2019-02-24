@@ -6,7 +6,8 @@ import Send from './send'
 import Auth from './auth'
 import Log from './log'
 import Func from './func'
-
+import history from 'koa2-connect-history-api-fallback'
+import compress from 'koa-compress'
 export default app => {
 
     //缓存拦截器
@@ -36,7 +37,10 @@ export default app => {
 
     //post请求中间件
     app.use(bodyParser())
-    
+    // 解析路由history模式
+    app.use(history({rewrites: [{ from: /^\/wap\/.*$/, to: '/index.html' }]}))
+    // 解析gzip压缩格式文件
+    app.use(compress({ threshold: 2048 }))
     //静态文件中间件
     app.use(staticFiles(path.resolve(__dirname, '../../../public/client')));
 
