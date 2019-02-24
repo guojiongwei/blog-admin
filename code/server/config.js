@@ -12,7 +12,7 @@ const log = {
     projectName: 'blog', // 项目名，记录在日志中的项目信息
     ip: '0.0.0.0' // 默认情况下服务器 ip 地址
 }
-const port = process.env.NODE_ENV === 'production' ? 80 : 3000
+const port = process.env.NODE_ENV === 'production' ? 80 : 80
 
 export default {
     env: process.env.NODE_ENV,
