@@ -9,7 +9,7 @@ module.exports = {
             devtoolType: 'cheap-module-eval-source-map',
             proxyTable: {  //proxy代理
                 '/admin_demo_api': {
-                    target: 'http://localhost:3000/admin_demo_api/',
+                    target: 'http://localhost:444/admin_demo_api/',
                     changeOrigin: true,
                     pathRewrite: {
                       '^/admin_demo_api': '/'
@@ -38,7 +38,7 @@ module.exports = {
             devtoolType: 'cheap-module-eval-source-map',
             proxyTable: {
                 '/client_demo_api': {
-                    target: 'http://localhost:3000/client_demo_api/',
+                    target: 'http://localhost:444/client_demo_api/',
                     changeOrigin: true,
                     pathRewrite: {
                       '^/client_demo_api': '/'
