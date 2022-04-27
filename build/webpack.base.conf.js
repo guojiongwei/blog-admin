@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path')
-const isAdmin = process.env.NODE_ENV_TYPE === 'admin'
-const prodConf = isAdmin ? require('../config').admin.build :  require('../config').client.build
+const prodConf =  require('../config').admin.build
 const vueLoaderConfig = require('./vue-config.js')
 
 
@@ -18,7 +17,7 @@ const assetsPath = function(dir) {
 module.exports = {
     //项目入口文件
     entry: {
-        app: [ isAdmin ? resolve('code/admin/src/main.js') : resolve('code/client/src/main.js'), 'babel-polyfill']
+        app: [ resolve('src/main.js'), 'babel-polyfill']
     },
     //配置模块如何被解析
     resolve: {
@@ -29,11 +28,11 @@ module.exports = {
         //配置别名映射
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            'src': (isAdmin ? resolve('code/admin/src') : resolve('code/client/src')),
-            'components': (isAdmin ? resolve('code/admin/src/components') : resolve('code/client/src/components')),
-            'assets': (isAdmin ? resolve('code/admin/src/assets') : resolve('code/client/src/assets')),
-            'views': (isAdmin ? resolve('code/admin/src/views') : resolve('code/client/src/views')),
-            'store': (isAdmin ? resolve('code/admin/src/store') : resolve('code/client/src/store'))
+            'src':resolve('src'),
+            'components':resolve('src/components'),
+            'assets':resolve('src/assets'),
+            'views':resolve('src/views'),
+            'store':resolve('src/store')
         }
     },
 
@@ -44,12 +43,12 @@ module.exports = {
                 test: /\.js$/, //资源路径
                 loader: 'babel-loader', //该路径执行的loader
                 // exclude: __dirname + '/node_modules/',  //指定哪个文件不需要loader
-                include: isAdmin ? resolve("code/admin/src") : resolve("code/client/src") //指定哪个文件loader
+                include: resolve("src") //指定哪个文件loader
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-                include: isAdmin ? resolve("code/admin/src") : resolve("code/client/src"),
+                include: resolve("src"),
                 options: vueLoaderConfig
             },
             {

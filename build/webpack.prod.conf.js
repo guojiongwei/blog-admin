@@ -2,8 +2,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const styleLoader = require('./style-loader')
-const isAdmin = process.env.NODE_ENV_TYPE === 'admin'
-const prodConf = isAdmin ? require('../config').admin.build : require('../config').client.build //生产环境配置参数
+const isAdmin = true
+const prodConf = require('../config').admin.build //生产环境配置参数
 const baseConf = require('./webpack.base.conf'); //webpack基本配置
 
 //一个webpack配置合并模块,可简单的理解为与Object.assign()功能类似！
@@ -25,7 +25,7 @@ const assetsPath = function (dir) {
 const prod = merge({}, baseConf, {
     output: {
         //Build后所有文件存放的位置
-        path: path.resolve(__dirname, `../public/${isAdmin ? 'admin' : 'client'}`),
+        path: path.resolve(__dirname, `../dist`),
 
         //html引用资源路径,可在此配置cdn引用地址！
         publicPath: prodConf.publicPath,
@@ -58,10 +58,10 @@ const prod = merge({}, baseConf, {
             parallel: true, // 使用多进程并行运行来提高构建速度
             compress: {
                 warnings: false,
-                // drop_console: true, // 打包后去除console.log
-                // pure_funcs: ['console.log']
+                drop_console: true, // 打包后去除console.log
+                pure_funcs: ['console.log']
             },
-            sourceMap: true
+            sourceMap: false
             // UglifyJs do not support ES6+, you can also use babel-minify for better treeshaking: https://github.com/babel/minify
         }),
 
@@ -72,13 +72,13 @@ const prod = merge({}, baseConf, {
         new webpack.HashedModuleIdsPlugin(),
 
         //将整个文件复制到构建输出指定目录下
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, `../static`),
-                to: prodConf.assetsPath,
-                ignore: [".*"]
-            }
-        ]),
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, `../static`),
+        //         to: prodConf.assetsPath,
+        //         ignore: [".*"]
+        //     }
+        // ]),
 
 
         // 第三方库chunk
@@ -102,8 +102,8 @@ const prod = merge({}, baseConf, {
 
         // html配置
         new HtmlWebpackPlugin({
-            filename: (isAdmin ? path.resolve(__dirname, '../public/admin/index.html') : path.resolve(__dirname, '../public/client/index.html')),
-            template: (isAdmin ? 'code/admin/index.html' : 'code/client/index.html'),
+            filename: path.resolve(__dirname, '../dist/index.html'),
+            template: path.resolve(__dirname, '../static/index.html'),
             // favicon: path.resolve(__dirname, '../favicon.ico'),
             inject: true,
             //压缩配置

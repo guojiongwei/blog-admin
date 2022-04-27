@@ -2,8 +2,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const styleLoader = require('./style-loader')
-const isAdmin = process.env.NODE_ENV_TYPE === 'admin'
-const devConf = isAdmin ? require('../config').admin.dev : require('../config').client.dev //开发环境配置参数
+const isAdmin = true
+const devConf = require('../config').admin.dev //开发环境配置参数
 const baseConf = require('./webpack.base.conf'); //webpack基本配置
 
 //一个webpack配置合并模块
@@ -64,7 +64,7 @@ const dev = merge(baseConf, {
         //配置html入口信息
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: (isAdmin ? 'code/admin/index.html' : 'code/client/index.html'),
+            template: 'static/index.html',
             inject: true
         }),
         //编译提示插件

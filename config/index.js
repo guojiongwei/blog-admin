@@ -20,41 +20,11 @@ module.exports = {
         build: {
             env: 'production', // 当前环境
             publicPath: '/', // html引用资源路径
-            assetsPath: 'static', // 静态资源目录
-            assetsSubDirectory: 'static', // html资源存放目录
-            devtoolType: 'source-map', // 代码位置信息
+            assetsPath: '', // 静态资源目录
+            assetsSubDirectory: '', // html资源存放目录
+            devtoolType: '', // 代码位置信息
             productionGzip: true, //开启Gzip压缩
             productionGzipExtensions: ['js', 'css'] //Gzip压缩文件
         }
-    },
-
-    client: {
-        dev: {
-            env: 'development',
-            publicPath: '/',
-            host: 'localhost',
-            port: '8080',
-            assetsSubDirectory: 'static',
-            devtoolType: 'cheap-module-eval-source-map',
-            proxyTable: {
-                '/client_demo_api': {
-                    target: 'http://localhost/client_demo_api/',
-                    changeOrigin: true,
-                    pathRewrite: {
-                      '^/client_demo_api': '/'
-                    }
-                }
-            }
-        },
-        build: {
-            env: 'production',
-            publicPath: '/',
-            assetsPath: 'static',
-            assetsSubDirectory: 'static',
-            devtoolType: 'source-map',
-            productionGzip: true,
-            productionGzipExtensions: ['js', 'css'] 
-        }
     }
-    
 }

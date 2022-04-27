@@ -16,7 +16,7 @@ const webpack = require("webpack");
 //webpack production setting
 const config = require("./webpack.prod.conf");
 //指定删除的文件
-const rmFile = path.resolve(__dirname, `../puclic/${isAdmin ? 'admin':'client'}static`);
+const rmFile = path.resolve(__dirname, `../dist`);
 //build start loading
 const spinner = ora("building for production...");
 
