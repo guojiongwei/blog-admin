@@ -47,7 +47,7 @@
 
 <script>
     import { mapGetters } from 'vuex'
-    import Markdown from 'components/Markdown'
+    import Markdown from '@/components/Markdown'
     export default {
         components: { Markdown },
         props: ['info'],

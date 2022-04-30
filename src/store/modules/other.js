@@ -1,4 +1,4 @@
-import axios from 'src/utils/fetch'
+import axios from '@/utils/fetch'
 const other = {
     state: {
         

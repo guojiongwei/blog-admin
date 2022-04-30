@@ -1,4 +1,4 @@
-import axios from 'src/utils/fetch'
+import axios from '@/utils/fetch'
 import { blogTypes } from './classify'
 
 const music = {

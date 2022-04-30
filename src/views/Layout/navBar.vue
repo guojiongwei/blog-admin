@@ -9,7 +9,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Hamburger from 'components/Hamburger/index'
+import Hamburger from '@/components/Hamburger/index'
 import Levelbar from './levelbar'
 import TabsView from './tabsView'
 import Account from './account'

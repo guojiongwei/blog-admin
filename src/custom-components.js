@@ -1,4 +1,4 @@
-import IconSvg from 'components/Icon-svg'
+import IconSvg from '@/components/Icon-svg'
 const install = Vue => {
     Vue.component('Icon', IconSvg)
 }

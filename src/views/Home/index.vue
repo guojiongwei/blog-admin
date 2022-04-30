@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import Github from 'components/Github/index'
+    import Github from '@/components/Github/index'
     export default {
         name: 'home',
         components: { Github },

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { SlideBar, NavBar, ContentView } from './index'
+import { SlideBar, NavBar, ContentView } from './index.js'
 export default {
     name: 'layout',
     components: {

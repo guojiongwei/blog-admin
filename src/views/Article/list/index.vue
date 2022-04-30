@@ -48,7 +48,7 @@
 <script>
     import { mapGetters } from 'vuex'
     import EditComponent from '../edit/index'
-    import { blogFilters } from 'store/modules/classify'
+    import { blogFilters } from '@/store/modules/classify'
     export default {
         components: {
             EditComponent

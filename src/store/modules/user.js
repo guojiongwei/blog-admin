@@ -1,5 +1,5 @@
-import axios from 'src/utils/fetch'
-import {getToken} from 'src/utils/auth'
+import axios from '@/utils/fetch'
+import {getToken} from '@/utils/auth'
 import md5 from 'js-md5'
 import axios1 from 'axios'
 

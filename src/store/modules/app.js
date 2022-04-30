@@ -1,4 +1,4 @@
-import { Local } from 'src/utils/storage'
+import { Local } from '@/utils/storage'
 const app = {
     state: {
         slideBar: {
