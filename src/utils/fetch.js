@@ -19,7 +19,7 @@ axios.interceptors.response.use(response => response, err => Promise.resolve(err
 // 检查状态码
 function checkStatus(res) { 
     // 结束
-    if (res.status === 0 || res.status === 304) {
+    if (res.status === 200 || res.status === 304) {
         return res.data
     }
     return {
@@ -33,7 +33,7 @@ function checkStatus(res) {
 
 // 检查CODE值
 function checkCode(res) {
-    if (res.code === 0) {
+    if (res.code !== 0) {
         Message({
           message: res.msg,
           type: 'error',
