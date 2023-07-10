@@ -2,7 +2,7 @@
 <article>
     <div class="search">
         <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="keyword" @keydown.enter.native="getBlogList"></el-input>
-        <el-button type="primary" icon="el-icon-search" :loading="loading" @click="getBlogList">搜索</el-button>
+        <el-button type="primary" icon="el-icon-search" :loading="loading" @click="getBlogList">搜索-{{ blogList.length }}</el-button>
     </div>
     <el-table ref="multipleTable" :data="blogList" tooltip-effect="dark" stripe border>
         <el-table-column type="index" width="55" align="center" header-align="center" :index="increment"></el-table-column>
